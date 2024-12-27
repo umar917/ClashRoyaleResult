@@ -1,0 +1,427 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+    background-image: url('https://i.pinimg.com/originals/00/5a/32/005a3235a729aab89401c17c971a2881.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px; /* Увеличил ширину контейнера */
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+h1.visible, h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #102c54;
+    transform: scale(1.1);
+}
+
+#fighter-info {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#fighter-info img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Стили для таблиц */
+.deck-table, .reviews-table, .facts-table {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.deck-table.visible, .reviews-table.visible, .facts-table.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.deck-table::after, .reviews-table::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: #4682B4;
+    margin: 20px 0;
+}
+
+.deck-table h2, .reviews-table h2 {
+    color: #4682B4;
+    margin-bottom: 20px;
+}
+
+.deck-table table, .reviews-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.deck-table th, .deck-table td, .reviews-table th, .reviews-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.deck-table th, .reviews-table th {
+    background-color: #4682B4;
+    color: white;
+}
+
+/* Увеличиваем размер фоток в таблице метовых колод */
+.deck-table td img {
+    width: 200px; /* Фиксированная ширина */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Анимация при наведении */
+}
+
+.deck-table td img:hover {
+    transform: scale(1.2); /* Увеличиваем фотку при наведении */
+}
+
+/* Убедимся, что ячейки таблицы не ограничивают фотки */
+.deck-table td {
+    width: auto; /* Ячейка подстраивается под содержимое */
+    min-width: 200px; /* Минимальная ширина для ячейки */
+}
+
+/* Стили для формы отзывов */
+#review-form {
+    margin-top: 20px;
+}
+
+#review-form input, #review-form textarea, #review-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#review-form button {
+    background-color: #4682B4;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#review-form button:hover {
+    background-color: #102c54;
+}
+
+/* Стили для раздела "О нас" */
+.about-us {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-us h2 {
+    color: #4682B4;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.about-us ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-us ul li {
+    margin: 10px 0;
+}
+
+.about-us ul li a {
+    color: #4682B4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-us ul li a:hover {
+    color: #102c54;
+}
+
+/* Стили для таблицы с интересными фактами */
+.facts-table {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.facts-table h2 {
+    color: #4682B4;
+    margin-bottom: 20px;
+}
+
+.facts-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.facts-table th, .facts-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.facts-table th {
+    background-color: #4682B4;
+    color: white;
+}
+
+.facts-table td img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.facts-table iframe {
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+/* Стили для кнопки "Задать вопрос" */
+#question-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#question-button:hover {
+    background-color: #102c54;
+}
+
+/* Стили для формы вопроса */
+.question-form {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.question-form.visible {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.question-form h3 {
+    color: #4682B4;
+    margin-bottom: 10px;
+}
+
+.question-form input, .question-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.question-form button {
+    padding: 10px 20px;
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.question-form button:hover {
+    background-color: #102c54;
+}
+
+/* Анимация для отзывов */
+#reviews-body tr {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#reviews-body tr.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Стили для гифки короля */
+.king-gif {
+    position: fixed; /* Фиксируем гифку на экране */
+    top: 20px; /* Отступ сверху (чуть ниже) */
+    left: 20px; /* Отступ слева (чуть правее) */
+    z-index: 1000; /* Чтобы гифка была поверх других элементов */
+    background: transparent; /* Прозрачный фон */
+}
+
+.king-gif img {
+    width: 150px; /* Увеличил размер гифки */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 10px; /* Скругляем углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    background: transparent; /* Прозрачный фон */
+}
+
+/* Стили для второй гифки (чуть выше кнопки "Задать вопрос") */
+.question-gif {
+    width: 150px;
+    position: fixed; /* Фиксируем гифку на экране */
+    bottom: 100px; /* Отступ снизу (чуть выше кнопки) */
+    right: 20px; /* Отступ справа */
+    z-index: 1000; /* Чтобы гифка была поверх других элементов */
+    background: transparent; /* Прозрачный фон */
+}
+
+.question-gif img {
+    width: 150px; /* Размер гифки */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 10px; /* Скругляем углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    background: transparent; /* Прозрачный фон */
+}
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 24px; /* Уменьшаем размер заголовка */
+    }
+
+    h2 {
+        font-size: 20px; /* Уменьшаем размер подзаголовков */
+    }
+
+    button {
+        padding: 8px 16px; /* Уменьшаем размер кнопок */
+        font-size: 14px;
+    }
+
+    .king-gif img {
+        width: 100px; /* Уменьшаем размер гифки короля */
+    }
+
+    .question-gif img {
+        width: 80px; /* Уменьшаем размер второй гифки */
+    }
+
+    .deck-table, .reviews-table, .facts-table {
+        padding: 10px; /* Уменьшаем отступы в таблицах */
+    }
+
+    .deck-table td img {
+        width: 150px; /* Уменьшаем размер фоток в таблице */
+    }
+
+    .question-form {
+        width: 90%; /* Увеличиваем ширину формы вопроса */
+    }
+}
+
+/* Адаптивные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+        margin: 10px auto;
+    }
+
+    h1 {
+        font-size: 20px; /* Ещё меньше заголовок */
+    }
+
+    h2 {
+        font-size: 18px; /* Ещё меньше подзаголовки */
+    }
+
+    button {
+        padding: 6px 12px; /* Ещё меньше кнопки */
+        font-size: 12px;
+    }
+
+    .king-gif img {
+        width: 80px; /* Ещё меньше гифка короля */
+    }
+
+    .question-gif img {
+        width: 60px; /* Ещё меньше вторая гифка */
+    }
+
+    .deck-table td img {
+        width: 120px; /* Ещё меньше фотки в таблице */
+    }
+
+    .question-form {
+        width: 95%; /* Ещё шире форма вопроса */
+    }
+}

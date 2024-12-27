@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Royale Fighters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Гифка короля в верхнем левом углу -->
+    <div class="king-gif">
+        <img src="https://media.tenor.com/0EZ77ozZWxEAAAAi/clash-royale.gif" alt="Король показывает лай">
+    </div>
+    <!-- Вторая гифка чуть выше кнопки "Задать вопрос" -->
+    <div class="question-gif">
+        <img src="https://media.tenor.com/AMrA10G2lhMAAAAj/ice-spirit-jumping.gif" alt="Гифка для вопроса">
+    </div>
+
+    <div class="container">
+        <h1>Бойцы Clash Royale</h1>
+        <div class="fighter">
+            <button onclick="showFighter('Валькирия')">Валькирия</button>
+            <button onclick="showFighter('Лучницы')">Лучницы</button>
+            <button onclick="showFighter('Дракончик')">Дракончик</button>
+            <button onclick="showFighter('Ведьма')">Ведьма</button>
+            <button onclick="showFighter('Голем')">Голем</button>
+            <button onclick="showFighter('Мегарыцарь')">Мегарыцарь</button>
+            <button onclick="showFighter('ПЕККА')">ПЕККА</button>
+            <button onclick="showFighter('Шахтер')">Шахтер</button>
+        </div>
+        <div id="fighter-info">
+            <h2>Выберите бойца, чтобы узнать подробности!</h2>
+        </div>
+
+        <!-- Таблица с метовыми колодами -->
+        <div class="deck-table">
+            <h2>Метовые колоды Clash Royale</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Колода</th>
+                        <th>Фото</th>
+                        <th>Описание</th>
+                        <th>Сильные стороны</th>
+                        <th>Слабые стороны</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2.6 Колода</td>
+                        <td><img src="https://i.ytimg.com/vi/GV6FmKFn2K4/maxresdefault.jpg" alt="2.6 Колода" width="100"></td>
+                        <td>Классическая колода с мини-меной и быстрым дамагом. Используется для быстрых атак и контроля карт.</td>
+                        <td>Высокий дамаг, быстрый цикл карт, универсальность.</td>
+                        <td>Уязвима к замедлению и контролю, требует высокого мастерства.</td>
+                    </tr>
+                    <tr>
+                        <td>Голем-колода</td>
+                        <td><img src="https://i.ytimg.com/vi/pvcIneSzmao/maxresdefault.jpg" alt="Голем-колода" width="100"></td>
+                        <td>Сосредоточена на Големе и его поддержке. Идеальна для медленных, но мощных атак.</td>
+                        <td>Высокая прочность, хорошая защита, мощные комбинации.</td>
+                        <td>Медленный старт, уязвима к маневру, требует большого количества эликсира.</td>
+                    </tr>
+                    <tr>
+                        <td>Кладбище-колода</td>
+                        <td><img src="https://i.ytimg.com/vi/vnWQDb4_i-E/maxresdefault.jpg" alt="Кладбище-колода" width="100"></td>
+                        <td>Использует ркладбище для агрессивной атаки. Подходит для игроков, любящих нестандартные стратегии.</td>
+                        <td>Контроль карт, хороший дамаг, неожиданность для противника.</td>
+                        <td>Уязвима к быстрым атакам, требует точного тайминга.</td>
+                    </tr>
+                    <tr>
+                        <td>Хог и гоблины-колода</td>
+                        <td><img src="https://i.ytimg.com/vi/HeD1LeAzbFg/maxresdefault.jpg" alt="Хог и гоблины-колода" width="100"></td>
+                        <td>Сосредоточена на Хоге и его поддержке. Отлично подходит для прорыва обороны противника.</td>
+                        <td>Большой дамаг в связке, высокая прочность, универсальность.</td>
+                        <td>Уязвима к одиночным сильным картам, требует большого количества эликсира.</td>
+                    </tr>
+                    <tr>
+                        <td>Шахтер-колода</td>
+                        <td><img src="https://i.ytimg.com/vi/QzE85SD0gy4/maxresdefault.jpg" alt="Шахтер-колода" width="100"></td>
+                        <td>Использует Шахтера для внезапных атак. Подходит для игроков, любящих нестандартные стратегии.</td>
+                        <td>Высокая мобильность, внезапность, универсальность.</td>
+                        <td>Уязвима к защите и контролю, требует точного тайминга.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Таблица с отзывами -->
+        <div class="reviews-table">
+            <h2>Отзывы о Clash Royale</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Отзыв</th>
+                        <th>Оценка</th>
+                    </tr>
+                </thead>
+                <tbody id="reviews-body">
+                    <!-- Отзывы будут добавляться динамически -->
+                </tbody>
+            </table>
+
+            <!-- Форма для добавления отзыва -->
+            <form id="review-form">
+                <h3>Оставить отзыв</h3>
+                <input type="text" id="review-name" placeholder="Ваше имя" required>
+                <textarea id="review-text" placeholder="Ваш отзыв" required></textarea>
+                <input type="number" id="review-rating" placeholder="Оценка (1-5)" min="1" max="5" required>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+
+        <!-- Таблица с интересными фактами -->
+        <div class="facts-table">
+            <h2>Интересные факты о Clash Royale</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Факт</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Рекордные загрузки</td>
+                        <td>Clash Royale была загружена более 100 миллионов раз в первые 30 дней после релиза. Это сделало её одной из самых популярных мобильных игр в истории.</td>
+                    </tr>
+                    <tr>
+                        <td>2. Мировые турниры</td>
+                        <td>Clash Royale проводит крупные мировые турниры с призовыми фондами до $1 миллиона. Эти турниры привлекают лучших игроков со всего мира.</td>
+                    </tr>
+                    <tr>
+                        <td>3. Уникальные карты</td>
+                        <td>В игре более 100 уникальных карт, каждая из которых имеет свои особенности и стратегии. Это делает игру разнообразной и увлекательной.</td>
+                    </tr>
+                    <tr>
+                        <td>4. Миллионы игроков</td>
+                        <td>Ежедневно в Clash Royale играют миллионы игроков по всему миру. Это одна из самых популярных игр в жанре стратегии.</td>
+                    </tr>
+                    <tr>
+                        <td>5. Разработчики</td>
+                        <td>Игра была разработана компанией Supercell, которая также создала такие хиты, как Clash of Clans и Brawl Stars.</td>
+                    </tr>
+                    <tr>
+                        <td>6. Эволюция игры</td>
+                        <td>С момента релиза в 2016 году игра постоянно обновляется, добавляются новые карты, режимы и события, что делает её ещё более интересной.</td>
+                    </tr>
+                    <tr>
+                        <td>7. Сообщество</td>
+                        <td>Clash Royale имеет огромное сообщество фанатов, которые делятся стратегиями, советами и создают контент для других игроков.</td>
+                    </tr>
+                    <tr>
+                        <td>8. Киберспорт</td>
+                        <td>Clash Royale активно развивается как киберспортивная дисциплина, с регулярными турнирами и профессиональными командами.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Раздел "О нас" -->
+        <div class="about-us">
+            <h2>О нас</h2>
+            <p>Мы — команда фанатов Clash Royale, которые делятся полезной информацией о бойцах, колодах и стратегиях.</p>
+            <p>Свяжитесь с нами:</p>
+            <ul>
+                <li>Телефон: <a href="tel:+1234567890">+1234567890</a></li>
+                <li>Email: <a href="mailto:example@example.com">example@example.com</a></li>
+                <li>Юридический адрес: ул. Орджоникидзе, д. 172, г. , Россия</li>
+                <li>ИНН: 1234567890</li>
+                <li>ОГРН: 1234567890123</li>
+            </ul>
+            <p>Мы работаем с 2020 года и стремимся предоставлять актуальную информацию о Clash Royale.</p>
+        </div>
+    </div>
+
+    <!-- Кнопка "Задать вопрос" -->
+    <button id="question-button" onclick="openQuestionForm()">Задать вопрос</button>
+
+    <!-- Форма для вопроса -->
+    <div id="question-form" class="question-form">
+        <h3>Задайте ваш вопрос</h3>
+        <form onsubmit="submitQuestion(event)">
+            <input type="text" id="question-name" placeholder="Ваше имя" required>
+            <textarea id="question-text" placeholder="Ваш вопрос" required></textarea>
+            <button type="submit">Отправить</button>
+            <button type="button" onclick="closeQuestionForm()">Закрыть</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>>
